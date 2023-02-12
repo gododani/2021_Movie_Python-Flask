@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Studios
+{% endblock %}
+
+{% block content %}
+<h2 class="text-center" style="margin: 30px 0 30px 30px">All studios who made movies</h2>
+<table class="table table-hover table-dark">
+   <thead>
+      <tr>
+          <th scope="col" class="text-center">Id</th>
+          <th scope="col" class="text-center">Name</th>
+          <th scope="col" class="text-center">Origin</th>
+         <th scope="col" class="text-center">Options</th>
+      </tr>
+   </thead>
+   <tbody>
+      {% for studio in studios %}
+      <tr>
+          <td class="text-center align-middle">{{ studio.id }}</td>
+          <td class="text-center align-middle">{{ studio.name }}</td>
+          <td class="text-center align-middle">{{ studio.origin }}</td>
+         <td class="text-center align-middle">
+            <a class="btn btn-outline btn-info" href="update_studio/{{ studio.id }}&{{studio.name}}&{{studio.origin}}">Update</a>
+            <a class="btn btn-outline btn-danger" href="delete_studio/{{ studio.id }}">Delete</a>
+         </td>
+      </tr>
+      {% endfor %}
+   </tbody>
+</table>
+<div class="container text-center" style="margin-bottom: 50px">
+       <a class="btn btn-outline btn-success" style="margin-top: 10px; width: 20%" href="{{ url_for('add_studio') }}">Add New Studio</a>
+</div>
+{% endblock %}

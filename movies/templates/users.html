@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Users
+{% endblock %}
+
+{% block content %}
+<h2 class="text-center" style="margin: 30px 0 30px 30px">Registered users on this site</h2>
+<table class="table table-hover table-dark">
+   <thead>
+      <tr>
+         <th scope="col" class="text-center">Id</th>
+         <th scope="col" class="text-center">Username</th>
+         <th scope="col" class="text-center">Email</th>
+         <th scope="col" class="text-center">Password (Hash)</th>
+         <th scope="col" class="text-center">Options</th>
+      </tr>
+   </thead>
+   <tbody>
+      {% for user in users %}
+      <tr>
+         <td class="text-center align-middle">{{ user.id }}</td>
+         <td class="text-center align-middle">{{ user.username }}</td>
+         <td class="text-center align-middle">{{ user.email }}</td>
+         <td class="text-center align-middle">{{ user.password_hash }}</td>
+         <td class="text-center align-middle">
+            <a class="btn btn-outline btn-info" href="update_user/{{ user.id }}&{{ user.username }}&{{ user.email }}">Update</a>
+            <a class="btn btn-outline btn-danger" href="delete_user/{{ user.id }}">Delete</a>
+         </td>
+      </tr>
+      {% endfor %}
+   </tbody>
+</table>
+{% endblock %}

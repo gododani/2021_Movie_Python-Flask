@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Movie-Actor
+{% endblock %}
+
+{% block content %}
+<h2 class="text-center" style="margin: 30px 0 30px 30px">Movie - Actor connections on this site</h2>
+<table class="table table-hover table-dark">
+   <thead>
+      <tr>
+         <th scope="col" class="text-center">Id</th>
+         <th scope="col" class="text-center">Movie (id)</th>
+         <th scope="col" class="text-center">Actor (id)</th>
+      </tr>
+   </thead>
+   <tbody>
+      {% for movie_actor in movie_actors %}
+      <tr>
+         <td class="text-center align-middle">{{ movie_actor.id }}</td>
+         <td class="text-center align-middle">{{ movie_actor.movie_id }}</td>
+         <td class="text-center align-middle">{{ movie_actor.actor_id }}</td>
+      </tr>
+      {% endfor %}
+   </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Movie-Genre
+{% endblock %}
+
+{% block content %}
+<h2 class="text-center" style="margin: 30px 0 30px 30px">Movie - Genre connections on this site</h2>
+<table class="table table-hover table-dark">
+   <thead>
+      <tr>
+         <th scope="col" class="text-center">Id</th>
+         <th scope="col" class="text-center">Movie (id)</th>
+         <th scope="col" class="text-center">Genre (id)</th>
+      </tr>
+   </thead>
+   <tbody>
+      {% for movie_genre in movie_genres %}
+      <tr>
+         <td class="text-center align-middle">{{ movie_genre.id }}</td>
+         <td class="text-center align-middle">{{ movie_genre.movie_id }}</td>
+         <td class="text-center align-middle">{{ movie_genre.genre_id }}</td>
+      </tr>
+      {% endfor %}
+   </tbody>
+</table>
+{% endblock %}

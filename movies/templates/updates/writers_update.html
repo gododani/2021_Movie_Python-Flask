@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Writer Update
+{% endblock %}
+
+{% block content %}
+<body class="text-center">
+    <div class="container" style="margin-top: 50px">
+        <form method="POST" style="color:white">
+            {{ form.hidden_tag() }}
+            <h1 class="h3 mb-3 font-weight-normal">Update Writer</h1>
+            <br>
+            {{ form.name.label() }}
+            {{ form.name(class="form-control", placeholder="Name") }}
+            <br>
+            {{ form.origin.label() }}
+            {{ form.origin(class="form-control", placeholder="Origin") }}
+            <br>
+            {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+        </form>
+    </div>
+</body>
+{% endblock %}

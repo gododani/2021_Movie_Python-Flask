@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Writers
+{% endblock %}
+
+{% block content %}
+<h2 class="text-center" style="margin: 30px 0 30px 30px">All writers who wrote movies</h2>
+<table class="table table-hover table-dark">
+   <thead>
+      <tr>
+          <th scope="col" class="text-center">Id</th>
+          <th scope="col" class="text-center">Name</th>
+          <th scope="col" class="text-center">Origin</th>
+         <th scope="col" class="text-center">Options</th>
+      </tr>
+   </thead>
+   <tbody>
+      {% for writer in writers %}
+      <tr>
+          <td class="text-center align-middle">{{ writer.id }}</td>
+          <td class="text-center align-middle">{{ writer.name }}</td>
+          <td class="text-center align-middle">{{ writer.origin }}</td>
+         <td class="text-center">
+            <a class="btn btn-outline btn-info" href="update_writer/{{ writer.id }}&{{writer.name}}&{{writer.origin}}">Update</a>
+            <a class="btn btn-outline btn-danger" href="delete_writer/{{ writer.id }}">Delete</a>
+         </td>
+      </tr>
+      {% endfor %}
+   </tbody>
+</table>
+<div class="container text-center" style="margin-bottom: 50px">
+       <a class="btn btn-outline btn-success" style="margin-top: 10px; width: 20%" href="{{ url_for('add_writer') }}">Add New Writer</a>
+</div>
+{% endblock %}

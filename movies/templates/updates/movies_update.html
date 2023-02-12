@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Movie Update
+{% endblock %}
+
+{% block content %}
+<body class="text-center">
+    <div class="container" style="margin-top: 50px; margin-bottom: 50px">
+        <form method="POST" style="color:white">
+            {{ form.hidden_tag() }}
+            <h1 class="h3 mb-3 font-weight-normal">Update Movie</h1>
+            <br>
+            {{ form.name.label() }}
+            {{ form.name(class="form-control", placeholder="Name") }}
+            <br>
+            {{ form.length.label() }}
+            {{ form.length(class="form-control", placeholder="Length") }}
+            <br>
+            {{ form.certificate.label() }}
+            {{ form.certificate(class="form-control", placeholder="Certificate") }}
+            <br>
+            {{ form.release_date.label() }}
+            {{ form.release_date(class="form-control", placeholder="Release Date") }}
+            <br>
+            {{ form.writer_id.label() }}
+            {{ form.writer_id(class="form-control", placeholder="Writer") }}
+            <br>
+            {{ form.producer_id.label() }}
+            {{ form.producer_id(class="form-control", placeholder="Producer") }}
+            <br>
+            {{ form.studio_id.label() }}
+            {{ form.studio_id(class="form-control", placeholder="Studio") }}
+            <br>
+            {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+        </form>
+    </div>
+</body>
+{% endblock %}
